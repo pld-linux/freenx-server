@@ -1,12 +1,12 @@
 Summary:	A free (GPL) implementation of the NX server
 Summary(pl):	Darmowa (GPL) imlementacja serwera NX
 Name:		freenx
-Version:	0.2.6
+Version:	0.2.7
 Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://debian.tu-bs.de/knoppix/nx/%{name}-%{version}.tar.gz
-# Source0-md5:	c2f976a4940496353f63e5739f30dda4
+# Source0-md5:	982a4828417d15bce0b0096c22f85ec3
 URL:		http://debian.tu-bs.de/knoppix/nx/
 BuildRequires:	sed >= 4.0
 Requires:	expect
