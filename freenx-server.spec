@@ -34,7 +34,7 @@ Ten pakiet zawiera darmow± (GPL) implementacjê komponentu nxserwer.
 
 %build
 sed -i -e 's#useradd -d $NX_HOME_DIR -s $(which nxserver) nx#useradd -d $NX_HOME_DIR -u 138 -s $(which nxserver) nx#g' nxsetup
-sed -i -e 's#NX_HOME_DIR=/home/.nx/#NX_HOME_DIR=/home/services/nx/#g' nxserver
+sed -i -e 's#NX_HOME_DIR=/home/.nx/#NX_HOME_DIR=%{_sysconfdir}/nxserver/#g' nxserver
 sed -i -e 's#netcat#nc#g' nxserver
 sed -i -e 's#export PATH#export LD_LIBRARY_PATH=%{_libdir}/NX/lib\nexport PATH#g' nxnode
 
@@ -42,6 +42,7 @@ sed -i -e 's#export PATH#export LD_LIBRARY_PATH=%{_libdir}/NX/lib\nexport PATH#g
 rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT/%{_bindir}
+install -d $RPM_BUILD_ROOT/%{_sysconfdir}/nxserver/
 cp nx* $RPM_BUILD_ROOT/%{_bindir}
 
 %clean
@@ -59,3 +60,4 @@ fi
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog
 %attr(755,root,root) %{_bindir}/*
+%{_sysconfdir}/nxserver
