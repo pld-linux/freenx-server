@@ -8,10 +8,10 @@ Group:		X11/Applications/Networking
 Source0:	http://debian.tu-bs.de/knoppix/nx/%{name}-%{version}.tar.gz
 # Source0-md5:	c2f976a4940496353f63e5739f30dda4
 URL:		http://debian.tu-bs.de/knoppix/nx/
-BuildRequires:	sed >= 4.0.0
-Requires:	nx-X11
+BuildRequires:	sed >= 4.0
 Requires:	expect
 Requires:	nc
+Requires:	nx-X11
 Requires:	openssh-server
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -40,10 +40,10 @@ sed -i -e 's#export PATH#export LD_LIBRARY_PATH=%{_libdir}/NX/lib\nexport PATH#g
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_bindir}
+install -d $RPM_BUILD_ROOT%{_sysconfdir}/nxserver
 
-install -d $RPM_BUILD_ROOT/%{_bindir}
-install -d $RPM_BUILD_ROOT/%{_sysconfdir}/nxserver/
-cp nx* $RPM_BUILD_ROOT/%{_bindir}
+install nx* $RPM_BUILD_ROOT%{_bindir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -58,6 +58,6 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING ChangeLog
+%doc AUTHORS CONTRIB ChangeLog
 %attr(755,root,root) %{_bindir}/*
 %{_sysconfdir}/nxserver
