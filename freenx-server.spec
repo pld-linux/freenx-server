@@ -1,5 +1,5 @@
-Summary:	A free (GPL) implementation of the NX server.
-Summary(pl):	Darmowa (GPL) imlementacja serwera NX.
+Summary:	A free (GPL) implementation of the NX server
+Summary(pl):	Darmowa (GPL) imlementacja serwera NX
 Name:		freenx
 Version:	0.2.6
 Release:	1
@@ -8,6 +8,7 @@ Group:		X11/Applications/Networking
 Source0:	http://debian.tu-bs.de/knoppix/nx/%{name}-%{version}.tar.gz
 # Source0-md5:	c2f976a4940496353f63e5739f30dda4
 URL:		http://debian.tu-bs.de/knoppix/nx/
+BuildRequires:	sed >= 4.0.0
 Requires:	nx-X11
 Requires:	expect
 Requires:	nc
@@ -23,13 +24,13 @@ This package contains a free (GPL) implementation of the nxserver
 component.
 
 %description -l pl
-NoMachine NX to schemat kompresji dla X nowej generacji. Dziala na
-zdalnych sesjach X11 nawet przy predkosci 56k albo szybszej.
+NoMachine NX to schemat kompresji dla X nowej generacji. Dzia³a na
+zdalnych sesjach X11 nawet przy prêdko¶ci 56k albo szybszej.
 
-Ten pakiet zawiera darmowa (GPL) implementacje komponentu nxserwer.
+Ten pakiet zawiera darmow± (GPL) implementacjê komponentu nxserwer.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 
 %build
 sed -i -e 's#useradd -d $NX_HOME_DIR -s $(which nxserver) nx#useradd -d $NX_HOME_DIR -u 138 -s $(which nxserver) nx#g' nxsetup
@@ -42,12 +43,6 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT/%{_bindir}
 cp nx* $RPM_BUILD_ROOT/%{_bindir}
-chmod 755 $RPM_BUILD_ROOT/%{_bindir}/nxclient \
-    $RPM_BUILD_ROOT/%{_bindir}/nxnode \
-    $RPM_BUILD_ROOT/%{_bindir}/nxserver \
-    $RPM_BUILD_ROOT/%{_bindir}/nxkeygen \
-    $RPM_BUILD_ROOT/%{_bindir}/nxnode-login \
-    $RPM_BUILD_ROOT/%{_bindir}/nxsetup
 
 %clean
 rm -rf $RPM_BUILD_ROOT
