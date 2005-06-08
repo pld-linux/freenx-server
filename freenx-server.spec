@@ -25,7 +25,7 @@ component.
 
 %description -l pl
 NoMachine NX to schemat kompresji dla X nowej generacji. Dzia³a na
-zdalnych sesjach X11 nawet przy prêdko¶ci 56k albo szybszej.
+zdalnych sesjach X11 nawet przy prêdko¶ci 56k i na ka¿dej szybszej.
 
 Ten pakiet zawiera darmow± (GPL) implementacjê komponentu nxserwer.
 
