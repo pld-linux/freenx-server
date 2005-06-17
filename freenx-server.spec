@@ -7,7 +7,7 @@ License:	GPL v2
 Group:		X11/Applications/Networking
 Source0:	http://debian.tu-bs.de/knoppix/nx/%{name}-%{version}.tar.gz
 # Source0-md5:	a57046e79fb980b4720ec6ae67ed1f19
-URL:		http://debian.tu-bs.de/knoppix/nx/
+URL:		http://freenx.berlios.de/
 BuildRequires:	sed >= 4.0
 Requires:	expect
 Requires:	nc
