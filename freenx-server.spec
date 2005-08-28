@@ -1,12 +1,12 @@
 Summary:	A free (GPL) implementation of the NX server
 Summary(pl):	Darmowa (GPL) imlementacja serwera NX
 Name:		freenx
-Version:	0.4.0
+Version:	0.4.2
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Networking
 Source0:	http://download.berlios.de/freenx/%{name}-%{version}.tar.gz
-# Source0-md5:	a57046e79fb980b4720ec6ae67ed1f19
+# Source0-md5:	4b74709736ab1784403a61ba06cbde50
 URL:		http://freenx.berlios.de/
 BuildRequires:	sed >= 4.0
 Requires:	expect
