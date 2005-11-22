@@ -2,7 +2,7 @@ Summary:	A free (GPL) implementation of the NX server
 Summary(pl):	Darmowa (GPL) imlementacja serwera NX
 Name:		freenx
 Version:	0.4.2
-Release:	1
+Release:	1.1
 License:	GPL v2
 Group:		X11/Applications/Networking
 Source0:	http://download.berlios.de/freenx/%{name}-%{version}.tar.gz
@@ -13,6 +13,10 @@ Requires:	expect
 Requires:	nc
 Requires:	nx-X11
 Requires:	openssh-server
+Requires(pre):	/bin/id
+Requires(pre):	/usr/sbin/useradd
+Requires(postun):	/usr/sbin/userdel
+Provides:	user(nx)
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -32,11 +36,12 @@ Ten pakiet zawiera darmow± (GPL) implementacjê komponentu nxserwer.
 %prep
 %setup -q
 
-%build
-sed -i -e 's#useradd -d $NX_HOME_DIR -s $(which nxserver) nx#useradd -d $NX_HOME_DIR -u 138 -s $(which nxserver) nx#g' nxsetup
-sed -i -e 's#NX_HOME_DIR=/home/.nx/#NX_HOME_DIR=%{_sysconfdir}/nxserver/#g' nxserver
-sed -i -e 's#netcat#nc#g' nxserver
-sed -i -e 's#export PATH#export LD_LIBRARY_PATH=%{_libdir}/NX/lib\nexport PATH#g' nxnode
+#%build
+# THIS ALL IS BROKEN. create .patch next time.
+#sed -i -e 's#useradd -d $NX_HOME_DIR -s $(which nxserver) nx#useradd -d $NX_HOME_DIR -u 138 -s $(which nxserver) nx#g' nxsetup
+#sed -i -e 's#NX_HOME_DIR=/home/.nx/#NX_HOME_DIR=%{_sysconfdir}/nxserver/#g' nxserver
+#sed -i -e 's#netcat#nc#g' nxserver
+#sed -i -e 's#export PATH#export LD_LIBRARY_PATH=%{_libdir}/NX/lib\nexport PATH#g' nxnode
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -47,6 +52,10 @@ install nx* $RPM_BUILD_ROOT%{_bindir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%pre
+# FIXME: what group it should have?
+%useradd -u 160 -d %{_sysconfdir}/nxserver -s %{_bindir}/nxserver -g users -c "FreeNX User" nx
 
 %post
 # FIXME: this displays usage. what it should do?
