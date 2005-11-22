@@ -49,7 +49,8 @@ install nx* $RPM_BUILD_ROOT%{_bindir}
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%{_bindir}/nxsetup
+# FIXME: this displays usage. what it should do?
+#%{_bindir}/nxsetup
 
 %postun
 if [ "$1" = "0" ]; then
