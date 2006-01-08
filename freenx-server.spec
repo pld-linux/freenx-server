@@ -1,12 +1,14 @@
 Summary:	A free (GPL) implementation of the NX server
 Summary(pl):	Darmowa (GPL) imlementacja serwera NX
 Name:		freenx
-Version:	0.4.2
-Release:	1.1
+Version:	0.4.3
+%define cvs 20060107
+Release:	0.%{cvs}.1
 License:	GPL v2
 Group:		X11/Applications/Networking
-Source0:	http://download.berlios.de/freenx/%{name}-%{version}.tar.gz
-# Source0-md5:	4b74709736ab1784403a61ba06cbde50
+#Source0:	http://download.berlios.de/freenx/%{name}-%{version}.tar.gz
+Source0:	%{name}-%{cvs}.tar.gz
+# Source0-md5:	96fab73cfa3f30bb31e41ceab132993b
 URL:		http://freenx.berlios.de/
 BuildRequires:	sed >= 4.0
 Requires:	expect
@@ -34,7 +36,7 @@ zdalnych sesjach X11 nawet przy prêdko¶ci 56k i na ka¿dej szybszej.
 Ten pakiet zawiera darmow± (GPL) implementacjê komponentu nxserwer.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{cvs}
 
 #%build
 # THIS ALL IS BROKEN. create .patch next time.
