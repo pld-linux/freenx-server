@@ -14,6 +14,7 @@ BuildRequires:	sed >= 4.0
 Requires:	expect
 Requires:	nc
 Requires:	nx-X11
+Requires:	XFree86-tools
 Requires:	openssh-server
 Requires(pre):	/bin/id
 Requires(pre):	/usr/sbin/useradd
