@@ -15,6 +15,7 @@ Requires:	expect
 Requires:	nc
 Requires:	nx-X11
 Requires:	XFree86-tools
+Requires:	xinitrc-ng
 Requires:	openssh-server
 Requires(pre):	/bin/id
 Requires(pre):	/usr/sbin/useradd
