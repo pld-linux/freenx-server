@@ -79,4 +79,4 @@ fi
 %doc AUTHORS CONTRIB ChangeLog
 %attr(755,root,root) %{_bindir}/*
 %dir %{_sysconfdir}/nxserver
-%config(noreplace) %{_sysconfdir}/nxserver/node.conf
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/nxserver/node.conf
