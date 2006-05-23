@@ -1,6 +1,6 @@
 diff -ur freenx-0.5.0-test-2006-03-08-5-o/node.conf.sample freenx-0.5.0-test-2006-03-08-5/node.conf.sample
 --- freenx-0.5.0-test-2006-03-08-5-o/node.conf.sample	2005-08-29 05:44:59.000000000 -0600
-+++ freenx-0.5.0-test-2006-03-08-5/node.conf.sample	2006-05-22 23:25:07.000000000 -0600
++++ freenx-0.5.0-test-2006-03-08-5/node.conf.sample	2006-05-23 01:21:41.000000000 -0600
 @@ -305,7 +305,13 @@
  
  # The key that contains the name of the complete path of command name
@@ -34,4 +34,9 @@ diff -ur freenx-0.5.0-test-2006-03-08-5-o/node.conf.sample freenx-0.5.0-test-200
  
  # The number of seconds we wait for the nxagent to start before
  # deciding startup has failed
-Only in freenx-0.5.0-test-2006-03-08-5: node.conf.sample.orig
+@@ -384,3 +390,5 @@
+ 
+ # Extra options to nxproxy. See !M documentation for useful parameters.
+ #PROXY_EXTRA_OPTIONS=""
++
++APPLICATION_LIBRARY_PRELOAD="/usr/lib/libX11-nx.so.6.2:/usr/lib/libXext-nx.so.6.4:/usr/lib/libXcomp.so.1:/usr/lib/libXcompext.so.1:/usr/lib/libXrender-nx.so.1.2"
