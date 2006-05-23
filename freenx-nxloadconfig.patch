@@ -1,0 +1,12 @@
+diff -ur freenx-0.5.0-test-2006-03-08-5-o/nxloadconfig freenx-0.5.0-test-2006-03-08-5/nxloadconfig
+--- freenx-0.5.0-test-2006-03-08-5-o/nxloadconfig	2006-03-08 14:39:40.000000000 -0700
++++ freenx-0.5.0-test-2006-03-08-5/nxloadconfig	2006-05-22 23:40:35.000000000 -0600
+@@ -496,7 +496,7 @@
+ 	[ -z $(echo "$ENABLE_ROOTLESS_MODE" | egrep "^[0|1]$") ] && \
+ 		ERROR="yes" && echo "Error: Invalid value \"ENABLE_ROOTLESS_MODE=$ENABLE_ROOTLESS_MODE\""
+ 
+-	[ -z "$(strings $PATH_BIN/nxagent | grep 'NXAGENT - Version 1.5.0')"] && \
++	[ -z "$(strings $PATH_BIN/nxagent | grep 'NXAGENT - Version 1.5.0')" ] && \
+ 		ERROR="yes" && echo "Error: Could not find 1.5.0 version string in nxagent. NX 1.5.0 backend is needed for this version of FreeNX."
+ 		
+ 	[ -z $(echo "$ENABLE_USESSION" | egrep "^[0|1]$") ] && \
