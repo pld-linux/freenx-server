@@ -9,6 +9,7 @@ Group:		X11/Applications/Networking
 Source0:	http://debian.tu-bs.de/knoppix/nx/snapshots/freenx-%{version}-test-%{cvs}.tar.gz
 # Source0-md5:	db02370347fc31dd190db047f4481022
 Patch0:	freenx-node-conf.patch
+Patch1:	freenx-nxloadconfig.patch
 URL:		http://debian.tu-bs.de/knoppix/nx/
 BuildRequires:	sed >= 4.0
 Requires:	expect
@@ -40,6 +41,7 @@ Ten pakiet zawiera darmow± (GPL) implementacjê komponentu nxserwer.
 %prep
 %setup -q -n %{name}-%{version}-test-%{cvs}
 %patch0 -p1
+%patch1 -p1
 
 #%build
 # THIS ALL IS BROKEN. create .patch next time.
