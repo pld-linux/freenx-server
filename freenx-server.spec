@@ -50,6 +50,7 @@ Ten pakiet zawiera darmow± (GPL) implementacjê komponentu nxserwer.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_bindir}
 install -d $RPM_BUILD_ROOT%{_sysconfdir}/nxserver
+install node.conf.sample $RPM_BUILD_ROOT%{_sysconfdir}/nxserver/node.conf
 
 install nx* $RPM_BUILD_ROOT%{_bindir}
 
@@ -73,4 +74,5 @@ fi
 %defattr(644,root,root,755)
 %doc AUTHORS CONTRIB ChangeLog
 %attr(755,root,root) %{_bindir}/*
-%{_sysconfdir}/nxserver
+%dir %{_sysconfdir}/nxserver
+%config(noreplace) %{_sysconfdir}/nxserver/node.conf
