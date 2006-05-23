@@ -6,13 +6,13 @@ diff -ur freenx-0.5.0-test-2006-03-08-5-o/node.conf.sample freenx-0.5.0-test-200
  # The key that contains the name of the complete path of command name
  # 'xauth'.
 -#COMMAND_XAUTH=/usr/X11R6/bin/xauth
-+COMMAND_XAUTH=xauth
++COMMAND_XAUTH=/usr/X11R6/bin/xauth
 +
-+COMMAND_XSET=xset
++COMMAND_XSET=/usr/X11R6/bin/xset
 +
-+COMMAND_XMODMAP=xmodmap
++COMMAND_XMODMAP=/usr/X11R6/bin/xmodmap
 +
-+COMMAND_XKBCOMP=xkbcomp
++COMMAND_XKBCOMP=/usr/X11R6/bin/xkbcomp
  
  # The key that contains the name of the complete path of command name
  # 'smbmount'.
@@ -25,13 +25,3 @@ diff -ur freenx-0.5.0-test-2006-03-08-5-o/node.conf.sample freenx-0.5.0-test-200
  
  # The key that contains the name of the complete path of the 'ssh' and
  # 'ssh-keygen' command.
-@@ -363,7 +369,7 @@
- # for examples of useful parameters.
- #AGENT_EXTRA_OPTIONS_RFB=""
- #AGENT_EXTRA_OPTIONS_RDP=""
--#AGENT_EXTRA_OPTIONS_X=""
-+AGENT_EXTRA_OPTIONS_X="-fp /usr/share/X11/fonts/misc/,/usr/share/X11/fonts/100dpi/,/usr/share/X11/fonts/75dpi/,/usr/share/X11/fonts/Type1/,/usr/share/X11/fonts/TTF/"
- 
- # The number of seconds we wait for the nxagent to start before
- # deciding startup has failed
-Only in freenx-0.5.0-test-2006-03-08-5: node.conf.sample.orig
