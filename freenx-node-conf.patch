@@ -1,0 +1,37 @@
+diff -ur freenx-0.5.0-test-2006-03-08-5-o/node.conf.sample freenx-0.5.0-test-2006-03-08-5/node.conf.sample
+--- freenx-0.5.0-test-2006-03-08-5-o/node.conf.sample	2005-08-29 05:44:59.000000000 -0600
++++ freenx-0.5.0-test-2006-03-08-5/node.conf.sample	2006-05-22 23:25:07.000000000 -0600
+@@ -305,7 +305,13 @@
+ 
+ # The key that contains the name of the complete path of command name
+ # 'xauth'.
+-#COMMAND_XAUTH=/usr/X11R6/bin/xauth
++COMMAND_XAUTH=xauth
++
++COMMAND_XSET=xset
++
++COMMAND_XMODMAP=xmodmap
++
++COMMAND_XKBCOMP=xkbcomp
+ 
+ # The key that contains the name of the complete path of command name
+ # 'smbmount'.
+@@ -316,7 +322,7 @@
+ #COMMAND_SMBUMOUNT=smbumount
+ 
+ # The key that contains the name of the complete path of the 'netcat' command.
+-#COMMAND_NETCAT=netcat
++COMMAND_NETCAT=nc
+ 
+ # The key that contains the name of the complete path of the 'ssh' and
+ # 'ssh-keygen' command.
+@@ -363,7 +369,7 @@
+ # for examples of useful parameters.
+ #AGENT_EXTRA_OPTIONS_RFB=""
+ #AGENT_EXTRA_OPTIONS_RDP=""
+-#AGENT_EXTRA_OPTIONS_X=""
++AGENT_EXTRA_OPTIONS_X="-fp /usr/share/X11/fonts/misc/,/usr/share/X11/fonts/100dpi/,/usr/share/X11/fonts/75dpi/,/usr/share/X11/fonts/Type1/,/usr/share/X11/fonts/TTF/"
+ 
+ # The number of seconds we wait for the nxagent to start before
+ # deciding startup has failed
+Only in freenx-0.5.0-test-2006-03-08-5: node.conf.sample.orig
