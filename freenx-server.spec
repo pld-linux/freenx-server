@@ -14,8 +14,10 @@ Requires:	expect
 Requires:	nc
 Requires:	nx-X11
 Requires:	xorg-app-xmessage
+Requires:	xorg-app-xauth
 Requires:	xinitrc-ng
 Requires:	openssh-server
+Requires:	openssh-clients
 Requires(pre):	/bin/id
 Requires(pre):	/usr/sbin/useradd
 Requires(postun):	/usr/sbin/userdel
