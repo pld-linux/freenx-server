@@ -1,5 +1,5 @@
 Summary:	A free (GPL) implementation of the NX server
-Summary(pl):	Darmowa (GPL) imlementacja serwera NX
+Summary(pl.UTF-8):   Darmowa (GPL) imlementacja serwera NX
 Name:		freenx
 Version:	0.6.0
 Release:	1
@@ -32,11 +32,11 @@ dialup links or anything better.
 This package contains a free (GPL) implementation of the nxserver
 component.
 
-%description -l pl
-NoMachine NX to schemat kompresji dla X nowej generacji. Dzia³a na
-zdalnych sesjach X11 nawet przy prêdko¶ci 56k i na ka¿dej szybszej.
+%description -l pl.UTF-8
+NoMachine NX to schemat kompresji dla X nowej generacji. DziaÅ‚a na
+zdalnych sesjach X11 nawet przy prÄ™dkoÅ›ci 56k i na kaÅ¼dej szybszej.
 
-Ten pakiet zawiera darmow± (GPL) implementacjê komponentu nxserwer.
+Ten pakiet zawiera darmowÄ… (GPL) implementacjÄ™ komponentu nxserwer.
 
 %prep
 %setup -q
