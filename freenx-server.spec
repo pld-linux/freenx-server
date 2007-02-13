@@ -1,5 +1,5 @@
 Summary:	A free (GPL) implementation of the NX server
-Summary(pl.UTF-8):   Darmowa (GPL) imlementacja serwera NX
+Summary(pl.UTF-8):	Darmowa (GPL) imlementacja serwera NX
 Name:		freenx
 Version:	0.6.0
 Release:	1
