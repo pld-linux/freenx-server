@@ -30,7 +30,7 @@ diff -ur freenx-0.5.0-test-2006-03-08-5-o/node.conf.sample freenx-0.5.0-test-200
  #AGENT_EXTRA_OPTIONS_RFB=""
  #AGENT_EXTRA_OPTIONS_RDP=""
 -#AGENT_EXTRA_OPTIONS_X=""
-+AGENT_EXTRA_OPTIONS_X="-fp /usr/share/X11/fonts/misc/,/usr/share/X11/fonts/100dpi/,/usr/share/X11/fonts/75dpi/,/usr/share/X11/fonts/Type1/,/usr/share/X11/fonts/TTF/"
++AGENT_EXTRA_OPTIONS_X="-fp /usr/share/fonts/misc/,/usr/share/fonts/100dpi/,/usr/share/fonts/75dpi/,/usr/share/fonts/Type1/,/usr/share/fonts/TTF/"
  
  # The number of seconds we wait for the nxagent to start before
  # deciding startup has failed
@@ -39,4 +39,4 @@ diff -ur freenx-0.5.0-test-2006-03-08-5-o/node.conf.sample freenx-0.5.0-test-200
  # Extra options to nxproxy. See !M documentation for useful parameters.
  #PROXY_EXTRA_OPTIONS=""
 +
-+APPLICATION_LIBRARY_PRELOAD="/usr/lib/libX11-nx.so.6.2:/usr/lib/libXext-nx.so.6.4:/usr/lib/libXcomp.so.1:/usr/lib/libXcompext.so.1:/usr/lib/libXrender-nx.so.1.2"
++APPLICATION_LIBRARY_PRELOAD="/usr/lib/libX11-nx.so.6:/usr/lib/libXext-nx.so.6:/usr/lib/libXcomp.so.2:/usr/lib/libXcompext.so.2:/usr/lib/libXrender-nx.so.1"
