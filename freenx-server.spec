@@ -9,20 +9,20 @@ License:	GPL v2
 Group:		X11/Applications/Networking
 Source0:	http://download.berlios.de/freenx/%{name}-%{version}.tar.gz
 # Source0-md5:	80e7a57f787daabd0f80dfe8f58e67d3
-Patch0:		freenx-node-conf.patch
+Patch0:		%{name}-node-conf.patch
 URL:		http://freenx.berlios.de/
 BuildRequires:	sed >= 4.0
+Requires(postun):	/usr/sbin/userdel
+Requires(pre):	/bin/id
+Requires(pre):	/usr/sbin/useradd
 Requires:	expect
 Requires:	nc
 Requires:	nx-X11
-Requires:	xorg-app-xmessage
-Requires:	xorg-app-xauth
-Requires:	xinitrc-ng
-Requires:	openssh-server
 Requires:	openssh-clients
-Requires(pre):	/bin/id
-Requires(pre):	/usr/sbin/useradd
-Requires(postun):	/usr/sbin/userdel
+Requires:	openssh-server
+Requires:	xinitrc-ng
+Requires:	xorg-app-xauth
+Requires:	xorg-app-xmessage
 Provides:	user(nx)
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
