@@ -1,7 +1,6 @@
-diff -ur freenx-0.5.0-test-2006-03-08-5-o/node.conf.sample freenx-0.5.0-test-2006-03-08-5/node.conf.sample
---- freenx-0.5.0-test-2006-03-08-5-o/node.conf.sample	2005-08-29 05:44:59.000000000 -0600
-+++ freenx-0.5.0-test-2006-03-08-5/node.conf.sample	2006-05-23 01:21:41.000000000 -0600
-@@ -305,7 +305,13 @@
+--- freenx-0.7.1/node.conf.sample.orig	2007-10-15 00:25:14.000000000 +0200
++++ freenx-0.7.1/node.conf.sample	2008-05-20 19:03:12.000000000 +0200
+@@ -394,7 +394,13 @@
  
  # The key that contains the name of the complete path of command name
  # 'xauth'.
@@ -16,8 +15,8 @@ diff -ur freenx-0.5.0-test-2006-03-08-5-o/node.conf.sample freenx-0.5.0-test-200
  
  # The key that contains the name of the complete path of command name
  # 'smbmount'.
-@@ -316,7 +322,7 @@
- #COMMAND_SMBUMOUNT=smbumount
+@@ -413,7 +419,7 @@
+ #COMMAND_SMBUMOUNT_CIFS=/sbin/umount.cifs
  
  # The key that contains the name of the complete path of the 'netcat' command.
 -#COMMAND_NETCAT=netcat
@@ -25,7 +24,7 @@ diff -ur freenx-0.5.0-test-2006-03-08-5-o/node.conf.sample freenx-0.5.0-test-200
  
  # The key that contains the name of the complete path of the 'ssh' and
  # 'ssh-keygen' command.
-@@ -363,7 +369,7 @@
+@@ -476,7 +482,7 @@
  # for examples of useful parameters.
  #AGENT_EXTRA_OPTIONS_RFB=""
  #AGENT_EXTRA_OPTIONS_RDP=""
@@ -34,9 +33,12 @@ diff -ur freenx-0.5.0-test-2006-03-08-5-o/node.conf.sample freenx-0.5.0-test-200
  
  # The number of seconds we wait for the nxagent to start before
  # deciding startup has failed
-@@ -384,3 +390,5 @@
- 
+@@ -498,6 +504,8 @@
  # Extra options to nxproxy. See !M documentation for useful parameters.
  #PROXY_EXTRA_OPTIONS=""
-+
+ 
 +APPLICATION_LIBRARY_PRELOAD="/usr/lib/libX11-nx.so.6:/usr/lib/libXext-nx.so.6:/usr/lib/libXcomp.so.2:/usr/lib/libXcompext.so.2:/usr/lib/libXrender-nx.so.1"
++
+ # In case you want to use an external 'rdesktop' command
+ # set this to "1".
+ # 

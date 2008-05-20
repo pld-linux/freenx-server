@@ -1,13 +1,15 @@
+# TODO
+# - nxserver-helper ?
 Summary:	A free (GPL) implementation of the NX server
 Summary(pl.UTF-8):	Darmowa (GPL) imlementacja serwera NX
 Name:		freenx
-Version:	0.6.0
+Version:	0.7.1
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Networking
 Source0:	http://download.berlios.de/freenx/%{name}-%{version}.tar.gz
-# Source0-md5:	504aaa2c3c93c36eefab74e2b8a6506e
-Patch0:	freenx-node-conf.patch
+# Source0-md5:	80e7a57f787daabd0f80dfe8f58e67d3
+Patch0:		freenx-node-conf.patch
 URL:		http://freenx.berlios.de/
 BuildRequires:	sed >= 4.0
 Requires:	expect
@@ -55,7 +57,8 @@ install -d $RPM_BUILD_ROOT%{_bindir}
 install -d $RPM_BUILD_ROOT%{_sysconfdir}/nxserver
 install node.conf.sample $RPM_BUILD_ROOT%{_sysconfdir}/nxserver/node.conf
 
-install nxkeygen nxserver nxloadconfig nxnode nxsetup nxnode-login nxclient nxprint $RPM_BUILD_ROOT%{_bindir}
+install nxcheckload.sample $RPM_BUILD_ROOT%{_bindir}/nxcheckload
+install nxcups-gethost nxdesktop_helper nxdialog nxkeygen nxloadconfig nxnode nxnode-login nxprint nxserver nxsetup $RPM_BUILD_ROOT%{_bindir}
 
 
 %clean
