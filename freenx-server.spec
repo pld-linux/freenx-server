@@ -15,6 +15,7 @@ BuildRequires:	sed >= 4.0
 Requires(postun):	/usr/sbin/userdel
 Requires(pre):	/bin/id
 Requires(pre):	/usr/sbin/useradd
+Requires:	bc
 Requires:	expect
 Requires:	nc
 Requires:	nx-X11
@@ -23,6 +24,7 @@ Requires:	openssh-server
 Requires:	xinitrc-ng
 Requires:	xorg-app-xauth
 Requires:	xorg-app-xmessage
+Requires:	xorg-lib-libXcomposite
 Provides:	user(nx)
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -59,7 +61,6 @@ install node.conf.sample $RPM_BUILD_ROOT%{_sysconfdir}/nxserver/node.conf
 
 install nxcheckload.sample $RPM_BUILD_ROOT%{_bindir}/nxcheckload
 install nxcups-gethost nxdesktop_helper nxdialog nxkeygen nxloadconfig nxnode nxnode-login nxprint nxserver nxsetup $RPM_BUILD_ROOT%{_bindir}
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT
