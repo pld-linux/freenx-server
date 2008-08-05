@@ -26,6 +26,7 @@ Requires:	xorg-app-xauth
 Requires:	xorg-app-xmessage
 Requires:	xorg-lib-libXcomposite
 Provides:	user(nx)
+Suggests:	rdesktop
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
