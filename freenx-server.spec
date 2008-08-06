@@ -4,11 +4,12 @@ Summary:	A free (GPL) implementation of the NX server
 Summary(pl.UTF-8):	Darmowa (GPL) imlementacja serwera NX
 Name:		freenx-server
 Version:	0.7.2
-Release:	1
+Release:	1.1
 License:	GPL v2
 Group:		X11/Applications/Networking
 Source0:	http://download.berlios.de/freenx/%{name}-%{version}.tar.gz
 # Source0-md5:	961913bb82ee6e60d8df6f10e647bda9
+Source1:	%{name}.init
 Patch0:		freenx-node-conf.patch
 URL:		http://freenx.berlios.de/
 BuildRequires:	sed >= 4.0
@@ -47,7 +48,7 @@ Ten pakiet zawiera darmową (GPL) implementację komponentu nxserwer.
 
 %prep
 %setup -q
-%patch0 -p1
+##%patch0 -p1
 
 %build
 %{__make}
@@ -62,8 +63,10 @@ Ten pakiet zawiera darmową (GPL) implementację komponentu nxserwer.
 rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_bindir}
+install -d $RPM_BUILD_ROOT/etc/rc.d/init.d
 install -d $RPM_BUILD_ROOT%{_sysconfdir}/nxserver
 install node.conf.sample $RPM_BUILD_ROOT%{_sysconfdir}/nxserver/node.conf
+install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/freenx
 
 install nxcheckload.sample $RPM_BUILD_ROOT%{_bindir}/nxcheckload
 install nxcups-gethost nxdesktop_helper nxdialog nxkeygen nxloadconfig nxnode nxnode-login nxprint nxserver nxserver-helper/nxserver-helper nxsetup nxviewer_helper nxviewer-passwd/nxpasswd/nxpasswd $RPM_BUILD_ROOT%{_bindir}
@@ -75,6 +78,14 @@ rm -rf $RPM_BUILD_ROOT
 %useradd -u 160 -d %{_sysconfdir}/nxserver -s %{_bindir}/nxserver -g users -c "FreeNX User" nx
 
 %post
+/sbin/chkconfig --add %{name}
+%service %{name} restart
+
+%preun
+if [ "$1" = "0" ]; then
+%service %{name} stop
+/sbin/chkconfig --del %{name}
+fi
 
 %postun
 if [ "$1" = "0" ]; then
@@ -87,3 +98,4 @@ fi
 %attr(755,root,root) %{_bindir}/*
 %dir %{_sysconfdir}/nxserver
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/nxserver/node.conf
+%attr(754,root,root) /etc/rc.d/init.d/freenx
