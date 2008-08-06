@@ -31,8 +31,12 @@ case "$1" in
   stop)
 	stop
 	;;
-  *)
-	msg_usage "$0 {start|stop}"
+  restart)
+        stop
+	start
+	;;
+      *)
+	msg_usage "$0 {start|stop|restart}"
 	exit 3
 esac
 
