@@ -17,6 +17,7 @@ Requires(postun):	/usr/sbin/userdel
 Requires(pre):	/bin/id
 Requires(pre):	/usr/sbin/useradd
 Requires:	bc
+Requires:	binutils
 Requires:	expect
 Requires:	nc
 Requires:	nx-X11
