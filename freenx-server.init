@@ -1,0 +1,39 @@
+#!/bin/sh
+#
+# chkconfig:   345 90 88
+# processname: freenx
+# config:      /etc/nxserver/node.conf
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+# Source config
+if [ -f /etc/nxserver/node.conf ] ; then
+	. /etc/nxserver/node.conf
+fi
+
+start() {
+                [ ! -d "/tmp/.X11-unix" ] && mkdir -m1755 /tmp/.X11-unix/
+                msg_starting freenx
+                /usr/bin/nxserver --cleanup
+                /usr/bin/nxserver --start
+}
+stop()  {
+                msg_stopping freenx
+                /usr/bin/nxserver --stop
+                /usr/bin/nxserver --cleanup
+}
+
+case "$1" in
+  start)
+	start
+	;;
+  stop)
+	stop
+	;;
+  *)
+	msg_usage "$0 {start|stop}"
+	exit 3
+esac
+
+exit $RETVAL
