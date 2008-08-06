@@ -2,14 +2,14 @@
 # - nxserver-helper ?
 Summary:	A free (GPL) implementation of the NX server
 Summary(pl.UTF-8):	Darmowa (GPL) imlementacja serwera NX
-Name:		freenx
-Version:	0.7.1
+Name:		freenx-server
+Version:	0.7.2
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Networking
 Source0:	http://download.berlios.de/freenx/%{name}-%{version}.tar.gz
-# Source0-md5:	80e7a57f787daabd0f80dfe8f58e67d3
-Patch0:		%{name}-node-conf.patch
+# Source0-md5:	961913bb82ee6e60d8df6f10e647bda9
+Patch0:		freenx-node-conf.patch
 URL:		http://freenx.berlios.de/
 BuildRequires:	sed >= 4.0
 Requires(postun):	/usr/sbin/userdel
@@ -27,6 +27,8 @@ Requires:	xorg-app-xmessage
 Requires:	xorg-lib-libXcomposite
 Provides:	user(nx)
 Suggests:	rdesktop
+Obsoletes:	freenx
+Conflicts:	freenx
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -47,7 +49,9 @@ Ten pakiet zawiera darmową (GPL) implementację komponentu nxserwer.
 %setup -q
 %patch0 -p1
 
-#%build
+%build
+%{__make}
+
 # THIS ALL IS BROKEN. create .patch next time.
 #sed -i -e 's#useradd -d $NX_HOME_DIR -s $(which nxserver) nx#useradd -d $NX_HOME_DIR -u 138 -s $(which nxserver) nx#g' nxsetup
 #sed -i -e 's#NX_HOME_DIR=/home/.nx/#NX_HOME_DIR=%{_sysconfdir}/nxserver/#g' nxserver
@@ -56,23 +60,21 @@ Ten pakiet zawiera darmową (GPL) implementację komponentu nxserwer.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 install -d $RPM_BUILD_ROOT%{_bindir}
 install -d $RPM_BUILD_ROOT%{_sysconfdir}/nxserver
 install node.conf.sample $RPM_BUILD_ROOT%{_sysconfdir}/nxserver/node.conf
 
 install nxcheckload.sample $RPM_BUILD_ROOT%{_bindir}/nxcheckload
-install nxcups-gethost nxdesktop_helper nxdialog nxkeygen nxloadconfig nxnode nxnode-login nxprint nxserver nxsetup $RPM_BUILD_ROOT%{_bindir}
+install nxcups-gethost nxdesktop_helper nxdialog nxkeygen nxloadconfig nxnode nxnode-login nxprint nxserver nxserver-helper/nxserver-helper nxsetup nxviewer_helper nxviewer-passwd/nxpasswd/nxpasswd $RPM_BUILD_ROOT%{_bindir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %pre
-# FIXME: what group it should have?
 %useradd -u 160 -d %{_sysconfdir}/nxserver -s %{_bindir}/nxserver -g users -c "FreeNX User" nx
 
 %post
-# FIXME: this displays usage. what it should do?
-#%{_bindir}/nxsetup
 
 %postun
 if [ "$1" = "0" ]; then
