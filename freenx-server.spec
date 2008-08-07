@@ -11,7 +11,7 @@ Source0:	http://download.berlios.de/freenx/%{name}-%{version}.tar.gz
 # Source0-md5:	961913bb82ee6e60d8df6f10e647bda9
 Source1:	%{name}.init
 Patch0:		freenx-node-conf.patch
-Patch1:		freenx-server-nx-3.2.0.patch
+Patch1:		%{name}-nx-3.2.0.patch
 URL:		http://freenx.berlios.de/
 BuildRequires:	sed >= 4.0
 Requires(postun):	/usr/sbin/userdel
@@ -28,7 +28,14 @@ Requires:	xinitrc-ng
 Requires:	xorg-app-xauth
 Requires:	xorg-app-xmessage
 Requires:	xorg-lib-libXcomposite
+Suggests:	cups-backend-smb
+Suggests:	gnome-session
+Suggests:	kdebase-desktop
+Suggests:	openssl-tools
 Suggests:	rdesktop
+Suggests:	samba-clients
+Suggests:	xorg-app-sessreg
+Suggests:	xterm
 Provides:	user(nx)
 Obsoletes:	freenx
 Conflicts:	freenx
@@ -52,6 +59,10 @@ Ten pakiet zawiera darmową (GPL) implementację komponentu nxserwer.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+
+%if "%{_lib}" == "lib64"
+%{__sed} -i -e 's/PATH_LIB=$NX_DIR\/lib/PATH_LIB=$NX_DIR\/lib64/' nxloadconfig
+%endif
 
 %build
 %{__make}
@@ -81,13 +92,13 @@ rm -rf $RPM_BUILD_ROOT
 %useradd -u 160 -d %{_sysconfdir}/nxserver -s %{_bindir}/nxserver -g users -c "FreeNX User" nx
 
 %post
-/sbin/chkconfig --add %{name}
-%service %{name} restart
+/sbin/chkconfig --add freenx
+%service freenx restart
 
 %preun
 if [ "$1" = "0" ]; then
-%service %{name} stop
-/sbin/chkconfig --del %{name}
+%service freenx stop
+/sbin/chkconfig --del freenx
 fi
 
 %postun
