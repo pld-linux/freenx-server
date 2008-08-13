@@ -18,12 +18,16 @@ start() {
                 /usr/bin/nxserver --cleanup
                 /usr/bin/nxserver --start
 }
+
 stop()  {
                 msg_stopping freenx
                 /usr/bin/nxserver --stop
                 /usr/bin/nxserver --cleanup
 }
 
+status() {
+		/usr/bin/nxserver --status
+}
 case "$1" in
   start)
 	start
@@ -35,8 +39,10 @@ case "$1" in
         stop
 	start
 	;;
+  status)
+  	;;
       *)
-	msg_usage "$0 {start|stop|restart}"
+	msg_usage "$0 {start|stop|restart|status}"
 	exit 3
 esac
 
