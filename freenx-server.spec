@@ -24,6 +24,7 @@ Requires:	nc
 Requires:	nx-X11
 Requires:	openssh-clients
 Requires:	openssh-server
+Requires:	openssl
 Requires:	xinitrc-ng
 Requires:	xorg-app-xauth
 Requires:	xorg-app-xmessage
