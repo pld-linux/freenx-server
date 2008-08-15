@@ -1,8 +1,13 @@
 #!/bin/sh
 #
-# chkconfig:   345 90 88
-# processname: freenx
-# config:      /etc/nxserver/node.conf
+# freenx        freenx terminal server
+#
+# chkconfig:    345 90 88
+#
+# description:  freenx terminal server based on NoMachine \
+#               technology.
+#
+# config:       /etc/freenx/node.conf
 
 # Source function library.
 . /etc/rc.d/init.d/functions
