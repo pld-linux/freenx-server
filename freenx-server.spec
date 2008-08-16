@@ -1,5 +1,6 @@
 # TODO
 # - nxserver-helper ?
+# - Use nomachine key by default
 Summary:	A free (GPL) implementation of the NX server
 Summary(pl.UTF-8):	Darmowa (GPL) imlementacja serwera NX
 Name:		freenx-server
