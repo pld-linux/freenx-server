@@ -84,10 +84,10 @@ install -d $RPM_BUILD_ROOT%{_bindir}
 install -d $RPM_BUILD_ROOT/var/lib/nxserver/{,db,db/closed,db/failed,db/running}
 install -d $RPM_BUILD_ROOT/etc/rc.d/init.d
 install -d $RPM_BUILD_ROOT%{_sysconfdir}/nxserver
-install -d $RPM_BUILD_ROOT%{_sysconfdir}/nxserver/.ssh
 install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/nxserver/nomachine.key.pub
-install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/nxserver/.ssh/authorized_keys
 install %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}/nxserver/nomachine.key
+install -d $RPM_BUILD_ROOT/var/lib/nxserver/home/.ssh
+install %{SOURCE2} $RPM_BUILD_ROOT/var/lib/nxserver/home/.ssh/authorized_keys
 install node.conf.sample $RPM_BUILD_ROOT%{_sysconfdir}/nxserver/node.conf
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/freenx
 
@@ -98,7 +98,8 @@ install nxcups-gethost nxdesktop_helper nxdialog nxkeygen nxloadconfig nxnode nx
 rm -rf $RPM_BUILD_ROOT
 
 %pre
-%useradd -u 160 -d %{_sysconfdir}/nxserver -s %{_bindir}/nxserver -g users -c "FreeNX User" nx
+%useradd -u 160 -d /var/lib/nxserver/home -s %{_bindir}/nxserver -g users -c "FreeNX User" nx
+# May need to add fix to change homedir for prior versions
 
 %post
 umask 022
@@ -137,7 +138,8 @@ fi
 %attr(755,nx,root) %dir /var/lib/nxserver/db/running
 %dir %{_sysconfdir}/nxserver
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/nxserver/node.conf
-%dir %{_sysconfdir}/nxserver/.ssh
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/nxserver/.ssh/authorized_keys
+%attr(755,nx,root) %dir /var/lib/nxserver/home
+%attr(750,nx,root) %dir /var/lib/nxserver/home/.ssh
+%config(noreplace,missingok) %verify(not md5 mtime size) /var/lib/nxserver/home/.ssh/authorized_keys
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/nxserver/nomachine.key*
 %attr(754,root,root) /etc/rc.d/init.d/freenx
