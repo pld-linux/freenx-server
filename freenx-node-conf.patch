@@ -1,6 +1,6 @@
 diff -Nur freenx-server-0.7.2.orig/node.conf.sample freenx-server-0.7.2.freenx-node-conf/node.conf.sample
---- freenx-server-0.7.2.orig/node.conf.sample	2008-03-14 22:47:47.000000000 +0100
-+++ freenx-server-0.7.2.freenx-node-conf/node.conf.sample	2008-08-16 21:05:52.000000000 +0200
+--- freenx-server-0.7.2.orig/node.conf.sample	2008-03-14 15:47:47.000000000 -0600
++++ freenx-server-0.7.2.freenx-node-conf/node.conf.sample	2008-08-17 15:54:20.000000000 -0600
 @@ -460,7 +460,13 @@
  
  # The key that contains the name of the complete path of command name
@@ -44,8 +44,8 @@ diff -Nur freenx-server-0.7.2.orig/node.conf.sample freenx-server-0.7.2.freenx-n
  # set this to "1".
  # 
 diff -Nur freenx-server-0.7.2.orig/node.conf.sample.orig freenx-server-0.7.2.freenx-node-conf/node.conf.sample.orig
---- freenx-server-0.7.2.orig/node.conf.sample.orig	1970-01-01 01:00:00.000000000 +0100
-+++ freenx-server-0.7.2.freenx-node-conf/node.conf.sample.orig	2008-03-14 22:47:47.000000000 +0100
+--- freenx-server-0.7.2.orig/node.conf.sample.orig	1969-12-31 17:00:00.000000000 -0700
++++ freenx-server-0.7.2.freenx-node-conf/node.conf.sample.orig	2008-08-17 15:54:20.000000000 -0600
 @@ -0,0 +1,585 @@
 +# node.conf
 +#
@@ -633,8 +633,8 @@ diff -Nur freenx-server-0.7.2.orig/node.conf.sample.orig freenx-server-0.7.2.fre
 +# If nxviewer cannot be found this is set automatically to "1".
 +#ENABLE_EXTERNAL_NXVIEWER="0"
 diff -Nur freenx-server-0.7.2.orig/nxloadconfig freenx-server-0.7.2.freenx-node-conf/nxloadconfig
---- freenx-server-0.7.2.orig/nxloadconfig	2008-03-14 22:47:47.000000000 +0100
-+++ freenx-server-0.7.2.freenx-node-conf/nxloadconfig	2008-08-16 21:06:34.000000000 +0200
+--- freenx-server-0.7.2.orig/nxloadconfig	2008-03-14 15:47:47.000000000 -0600
++++ freenx-server-0.7.2.freenx-node-conf/nxloadconfig	2008-08-17 15:54:32.000000000 -0600
 @@ -58,7 +58,7 @@
  # Where can different nx components be found
  NX_DIR=/usr
@@ -644,3 +644,12 @@ diff -Nur freenx-server-0.7.2.orig/nxloadconfig freenx-server-0.7.2.freenx-node-
  NX_ETC_DIR=/etc/nxserver
  NX_SESS_DIR=/var/lib/nxserver/db
  NX_HOME_DIR=/var/lib/nxserver/home
+@@ -70,7 +70,7 @@
+ APPLICATION_LIBRARY_PRELOAD="" #Calculated
+ 
+ # the name of the authorized keys file for ssh
+-SSH_AUTHORIZED_KEYS="authorized_keys2"
++SSH_AUTHORIZED_KEYS="authorized_keys"
+ 
+ # retest values like xauth, netcat and checks for nxdesktop/nxviewer availability
+ # set to 0 if you are sure, you set the right values
