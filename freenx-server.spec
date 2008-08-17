@@ -1,6 +1,5 @@
 # TODO
 # - nxserver-helper ?
-# - Use nomachine key by default
 Summary:	A free (GPL) implementation of the NX server
 Summary(pl.UTF-8):	Darmowa (GPL) imlementacja serwera NX
 Name:		freenx-server
@@ -38,7 +37,7 @@ Suggests:	gnome-session
 Suggests:	kdebase-desktop
 Suggests:	openssl-tools
 Suggests:	rdesktop
-Suggests:	samba-clients
+Suggests:	samba-client
 Suggests:	xorg-app-sessreg
 Suggests:	xterm
 Provides:	user(nx)
