@@ -11,6 +11,8 @@ Group:		X11/Applications/Networking
 Source0:	http://download.berlios.de/freenx/%{name}-%{version}.tar.gz
 # Source0-md5:	961913bb82ee6e60d8df6f10e647bda9
 Source1:	%{name}.init
+Source2:	%{name}-nomachine.key.pub
+Source3:	%{name}-nomachine.key
 Patch0:		freenx-node-conf.patch
 Patch1:		%{name}-nx-3.2.0.patch
 URL:		http://freenx.berlios.de/
@@ -82,6 +84,10 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_bindir}
 install -d $RPM_BUILD_ROOT/etc/rc.d/init.d
 install -d $RPM_BUILD_ROOT%{_sysconfdir}/nxserver
+install -d $RPM_BUILD_ROOT%{_sysconfdir}/nxserver/.ssh
+install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/nxserver/nomachine.key.pub
+install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/nxserver/.ssh/authorized_keys
+install %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}/nxserver/nomachine.key
 install node.conf.sample $RPM_BUILD_ROOT%{_sysconfdir}/nxserver/node.conf
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/freenx
 
@@ -126,4 +132,7 @@ fi
 %attr(755,root,root) %{_bindir}/*
 %dir %{_sysconfdir}/nxserver
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/nxserver/node.conf
+%dir %{_sysconfdir}/nxserver/.ssh
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/nxserver/.ssh/authorized_keys
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/nxserver/nomachine.key*
 %attr(754,root,root) /etc/rc.d/init.d/freenx
