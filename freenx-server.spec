@@ -4,7 +4,7 @@ Summary:	A free (GPL) implementation of the NX server
 Summary(pl.UTF-8):	Darmowa (GPL) imlementacja serwera NX
 Name:		freenx-server
 Version:	0.7.2
-Release:	1.3
+Release:	1.4
 License:	GPL v2
 Group:		X11/Applications/Networking
 Source0:	http://download.berlios.de/freenx/%{name}-%{version}.tar.gz
@@ -81,6 +81,7 @@ Ten pakiet zawiera darmową (GPL) implementację komponentu nxserwer.
 rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_bindir}
+install -d $RPM_BUILD_ROOT/var/lib/nxserver/{,db,db/closed,db/failed,db/running}
 install -d $RPM_BUILD_ROOT/etc/rc.d/init.d
 install -d $RPM_BUILD_ROOT%{_sysconfdir}/nxserver
 install -d $RPM_BUILD_ROOT%{_sysconfdir}/nxserver/.ssh
@@ -129,6 +130,11 @@ fi
 %defattr(644,root,root,755)
 %doc AUTHORS CONTRIB ChangeLog
 %attr(755,root,root) %{_bindir}/*
+%attr(755,nx,root) %dir /var/lib/nxserver
+%attr(755,nx,root) %dir /var/lib/nxserver/db
+%attr(755,nx,root) %dir /var/lib/nxserver/db/closed
+%attr(755,nx,root) %dir /var/lib/nxserver/db/failed
+%attr(755,nx,root) %dir /var/lib/nxserver/db/running
 %dir %{_sysconfdir}/nxserver
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/nxserver/node.conf
 %dir %{_sysconfdir}/nxserver/.ssh
