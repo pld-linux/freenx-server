@@ -45,6 +45,7 @@ case "$1" in
 	start
 	;;
   status)
+	status
   	;;
       *)
 	msg_usage "$0 {start|stop|restart|status}"
