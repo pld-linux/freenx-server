@@ -95,6 +95,12 @@ rm -rf $RPM_BUILD_ROOT
 %useradd -u 160 -d %{_sysconfdir}/nxserver -s %{_bindir}/nxserver -g users -c "FreeNX User" nx
 
 %post
+umask 022
+if [ ! -f /etc/shells ]; then
+	echo "%{_bindir}/nxserver" >> /etc/shells
+else
+	grep -q '^%{_bindir}/nxserver$' /etc/shells || echo "%{_bindir}/nxserver" >> /etc/shells
+fi
 /sbin/chkconfig --add freenx
 %service freenx restart
 
@@ -102,6 +108,11 @@ rm -rf $RPM_BUILD_ROOT
 if [ "$1" = "0" ]; then
 %service freenx stop
 /sbin/chkconfig --del freenx
+fi
+if [ "$1" = "0" ]; then
+	umask 022
+	grep -v '^%{_bindir}/nxserver$' /etc/shells > /etc/shells.new
+	mv -f /etc/shells.new /etc/shells
 fi
 
 %postun
