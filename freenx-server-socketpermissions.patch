@@ -1,12 +1,29 @@
 diff -Nur freenx-server-0.7.2.orig/nxserver freenx-server-0.7.2.socketpermissions/nxserver
 --- freenx-server-0.7.2.orig/nxserver	2008-03-14 15:47:47.000000000 -0600
-+++ freenx-server-0.7.2.socketpermissions/nxserver	2008-08-18 20:35:21.000000000 -0600
-@@ -903,6 +903,8 @@
++++ freenx-server-0.7.2.socketpermissions/nxserver	2008-08-18 20:46:45.000000000 -0600
+@@ -903,7 +903,7 @@
  {
  	if [ "$1" = "--startsession" ]
  	then
+-	
 +
-+	chmod 1777 /tmp/.X11-unix
- 	
  	server_add_usession
  
+ 	# We need to stop sending things when a SIGPIPE arrives
+@@ -1652,7 +1652,7 @@
+ 
+ cmd_start()
+ {
+-	
++	chmod 1777 /tmp/.X11-unix
+ 	[ -f $NX_HOME_DIR/.ssh/$SSH_AUTHORIZED_KEYS ] && cmd_abort "ERROR: Service already running"
+ 	mv $NX_HOME_DIR/.ssh/$SSH_AUTHORIZED_KEYS.disabled $NX_HOME_DIR/.ssh/$SSH_AUTHORIZED_KEYS
+ 	echo "NX> 122 Service started"
+@@ -1660,6 +1660,7 @@
+ 
+ cmd_stop()
+ {
++	chmod 1777 /tmp/.X11-unix
+ 	[ -f $NX_HOME_DIR/.ssh/$SSH_AUTHORIZED_KEYS ] || cmd_abort "Service was already stopped"
+ 	mv $NX_HOME_DIR/.ssh/$SSH_AUTHORIZED_KEYS $NX_HOME_DIR/.ssh/$SSH_AUTHORIZED_KEYS.disabled
+ 	echo "NX> 123 Service stopped"
