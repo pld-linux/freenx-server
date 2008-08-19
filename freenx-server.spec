@@ -14,6 +14,7 @@ Source2:	%{name}-nomachine.key.pub
 Source3:	%{name}-nomachine.key
 Patch0:		freenx-node-conf.patch
 Patch1:		%{name}-nx-3.2.0.patch
+Patch2:		%{name}-socketpermissions.patch
 URL:		http://freenx.berlios.de/
 BuildRequires:	sed >= 4.0
 Requires(postun):	/usr/sbin/userdel
@@ -63,6 +64,7 @@ Ten pakiet zawiera darmową (GPL) implementację komponentu nxserwer.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %if "%{_lib}" == "lib64"
 %{__sed} -i -e 's/PATH_LIB=$NX_DIR\/lib/PATH_LIB=$NX_DIR\/lib64/' nxloadconfig
