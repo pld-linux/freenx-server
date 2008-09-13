@@ -3,17 +3,16 @@
 Summary:	A free (GPL) implementation of the NX server
 Summary(pl.UTF-8):	Darmowa (GPL) imlementacja serwera NX
 Name:		freenx-server
-Version:	0.7.2
-Release:	2
+Version:	0.7.3
+Release:	1
 License:	GPL v2
 Group:		X11/Applications/Networking
-Source0:	http://download.berlios.de/freenx/%{name}-%{version}.tar.gz
-# Source0-md5:	961913bb82ee6e60d8df6f10e647bda9
+Source0:	http://download2.berlios.de/freenx/%{name}-%{version}.tar.gz
+# Source0-md5:	856f597e139018f7ed62713c9d6c9ed5
 Source1:	%{name}.init
 Source2:	%{name}-nomachine.key.pub
 Source3:	%{name}-nomachine.key
 Patch0:		freenx-node-conf.patch
-Patch1:		%{name}-nx-3.2.0.patch
 Patch2:		%{name}-socketpermissions.patch
 URL:		http://freenx.berlios.de/
 BuildRequires:	sed >= 4.0
@@ -63,7 +62,6 @@ Ten pakiet zawiera darmową (GPL) implementację komponentu nxserwer.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 %patch2 -p1
 
 %if "%{_lib}" == "lib64"
