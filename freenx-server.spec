@@ -32,6 +32,7 @@ Requires:	xinitrc-ng
 Requires:	xorg-app-sessreg
 Requires:	xorg-app-xauth
 Requires:	xorg-app-xmessage
+Requires:	xorg-app-xrdb
 Requires:	xorg-lib-libXcomposite
 Suggests:	cups-backend-smb
 Suggests:	gnome-session
