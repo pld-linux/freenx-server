@@ -16,8 +16,9 @@ Patch0:		freenx-node-conf.patch
 Patch2:		%{name}-socketpermissions.patch
 URL:		http://freenx.berlios.de/
 BuildRequires:	sed >= 4.0
-BuildRequires:	xorg-util-gccmakedep
 BuildRequires:	xorg-cf-files
+BuildRequires:	xorg-util-gccmakedep
+BuildRequires:	xorg-util-imake
 Requires(postun):	/usr/sbin/userdel
 Requires(pre):	/bin/id
 Requires(pre):	/usr/sbin/useradd
