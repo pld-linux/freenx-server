@@ -4,7 +4,7 @@ Summary:	A free (GPL) implementation of the NX server
 Summary(pl.UTF-8):	Darmowa (GPL) imlementacja serwera NX
 Name:		freenx-server
 Version:	0.7.3
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications/Networking
 Source0:	http://download2.berlios.de/freenx/%{name}-%{version}.tar.gz
@@ -38,7 +38,7 @@ Requires:	xorg-app-xrdb
 Requires:	xorg-lib-libXcomposite
 Suggests:	cups-backend-smb
 Suggests:	gnome-session
-Suggests:	kdebase-desktop
+Suggests:	kde4-kdebase-workspace
 Suggests:	openssl-tools
 Suggests:	rdesktop
 Suggests:	samba-client
